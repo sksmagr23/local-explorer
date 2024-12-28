@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "name": "Hidden Gem Cafe",
+    "location": "Paris",
+    "category": "Food",
+    "description": "A quaint cafe serving authentic French cuisine.",
+    "image": "hidden_gem_cafe.jpg",
+    "reviews": ["Amazing experience!", "Great food!"]
+  },
+  {
+    "id": "2",
+    "name": "Secret Beach",
+    "location": "Bali",
+    "category": "Outdoor",
+    "description": "A secluded beach with crystal clear waters.",
+    "image": "secret_beach.jpg",
+    "reviews": ["Beautiful and serene!", "Perfect for relaxation."]
+  }
+]
