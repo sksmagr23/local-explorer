@@ -1,44 +1,101 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Input, Select, Button } from "antd";
+import { SearchOutlined, EnvironmentOutlined } from "@ant-design/icons";
+import { FaUtensils, FaMountain } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 function HomePage() {
-    const [location, setLocation] = useState('');
-    const [category, setCategory] = useState('');
-    const navigate = useNavigate();
+  const [location, setLocation] = useState("");
+  const [category, setCategory] = useState("");
+  const navigate = useNavigate();
 
-    const handleSearch = () => {
-        navigate(`/results?location=${location}&category=${category}`);
-    };
+  const handleSearch = () => {
+    navigate(`/results?location=${location}&category=${category}`);
+  };
 
-    return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-purple-600">
-            <h1 className="text-4xl font-bold text-white mb-6">Local Experience Explorer</h1>
-            <div className="bg-white p-8 rounded-lg shadow-md w-80">
-                <input
-                    type="text"
-                    placeholder="Enter location"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                    <option value="">Select Category</option>
-                    <option value="Food">Food</option>
-                    <option value="Outdoor">Outdoor</option>
-                </select>
-                <button
-                    onClick={handleSearch}
-                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
-                >
-                    Search
-                </button>
-            </div>
+  const categories = [
+    { value: "Food", icon: <FaUtensils className="mr-2" /> },
+    { value: "Outdoor", icon: <FaMountain className="mr-2" /> },
+  ];
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4">
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-center"
+      >
+        <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
+          Local Experience Explorer
+        </h1>
+        <p className="text-white text-xl mb-8 opacity-90">
+          Discover amazing local experiences
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md"
+      >
+        <div className="space-y-6">
+          <div>
+            <Input
+              size="large"
+              placeholder="Enter location"
+              prefix={<EnvironmentOutlined className="text-gray-400" />}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="hover:border-blue-500 transition-colors"
+            />
+          </div>
+
+          <Select
+            size="large"
+            placeholder="Select Category"
+            value={category}
+            onChange={setCategory}
+            className="w-full"
+            options={categories.map((cat) => ({
+              value: cat.value,
+              label: (
+                <div className="flex items-center">
+                  {cat.icon}
+                  {cat.value}
+                </div>
+              ),
+            }))}
+          />
+
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              type="primary"
+              size="large"
+              icon={<SearchOutlined />}
+              onClick={handleSearch}
+              className="w-full bg-blue-500 hover:bg-blue-600 h-12 text-lg"
+            >
+              Explore Now
+            </Button>
+          </motion.div>
         </div>
-    );
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="mt-8 text-white text-center"
+      >
+        <p className="text-sm opacity-75">
+          Find the best local experiences in your area
+        </p>
+      </motion.div>
+    </div>
+  );
 }
 
 export default HomePage;

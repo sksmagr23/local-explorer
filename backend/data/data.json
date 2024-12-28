@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Hidden Gem Cafe",
+    "location": "Paris",
+    "category": "Food",
+    "description": "A quaint cafe serving authentic French cuisine.",
+    "image": "https://imgs.search.brave.com/DmPTSuSEdLIZ4VlDVpBoryWiS9rv-tWMcsmghbxACa8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG44/LmxvY2FsZGF0YWNk/bi5jb20vbmV3cy9t/ZWRpdW1fNjczMjFl/MmU1MmVhOS5qcGc",
+    "reviews": ["Amazing experience!", "Great food!"],
+    "rating": 4.7
+  },
+  {
+    "id": "2",
+    "name": "Loulou Restaurant",
+    "location": "Paris",
+    "category": "Food",
+    "description": "Offers stunning views of the Louvre and serves seasonal menu with highlights like foie gras, marinated beef, and veal chop.",
+    "image": "https://imgs.search.brave.com/IxUjvXlX_WAkOuoZE7pOKykLsXzBcv5WjMblmJ-mMo8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wYXJp/c2pldGFpbWUuY29t/L2RhdGEvbGF5b3V0/X2ltYWdlL2ZyLUZS/L0xvdWxvdS1QYXJp/cy1SZXN0dXJhbnQt/SW50JUMzJUE5cmll/dXItLTYzMHg0MDUt/LSVDMiVBOS1BZHJp/ZW4tRGlyYW5kLmpw/Zw",
+    "reviews": ["Wonderful!", "Must visit!"],
+    "rating": 4.9
+  },
+  {
+    "id": "3",
+    "name": "Secret Beach",
+    "location": "Bali",
+    "category": "Outdoor",
+    "description": "A secluded beach with crystal clear waters.",
+    "image": "https://imgs.search.brave.com/3e6eCWKe2WicPqd3B9a8VdXgabp7tnCdnIoznx0s120/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5jbm4uY29tL2Fw/aS92MS9pbWFnZXMv/c3RlbGxhci9wcm9k/LzE3MDQxMjE1NDA0/Ny1iYWxhbmdhbi1i/ZWFjaC5qcGc_cT13/XzExMTAsY19maWxs",
+    "reviews": ["Beautiful and serene!", "Perfect for relaxation."],
+    "rating": 4.5
+  }
+]

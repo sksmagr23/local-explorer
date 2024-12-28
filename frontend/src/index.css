@@ -1,3 +1,66 @@
+@import 'antd/dist/reset.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+}
+
+.ant-input-affix-wrapper:hover {
+  border-color: #3b82f6 !important;
+}
+
+.ant-select-selector:hover {
+  border-color: #3b82f6 !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.ant-card {
+    transition: all 0.3s ease;
+}
+
+.ant-card-hoverable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.ant-card-meta-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.ant-card-actions {
+    background: #f9fafb !important;
+}
+
+.ant-spin {
+    color: #1890ff;
+}
+
+.ant-card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.ant-rate {
+    color: #faad14;
+}
+
+.ant-tag {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.ant-btn {
+    height: 40px;
+    padding: 0 24px;
+    border-radius: 6px;
+}

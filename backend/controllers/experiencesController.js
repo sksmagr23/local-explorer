@@ -1,4 +1,4 @@
-const experiences = require('../data/experiences.json');
+const experiences = require('../data/data.json');
 
 const getAllExperiences = (req, res) => {
     const { location, category } = req.query;

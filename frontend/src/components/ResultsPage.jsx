@@ -1,55 +1,123 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import { Card, Typography, Spin, Empty } from "antd";
+import {
+  EyeOutlined,
+  EnvironmentOutlined,
+  TagOutlined,
+} from "@ant-design/icons";
+import { motion } from "framer-motion";
+
+const { Title, Text } = Typography;
+const { Meta } = Card;
 
 function ResultsPage() {
-    const [experiences, setExperiences] = useState([]);
-    const [searchParams] = useSearchParams();
+  const [experiences, setExperiences] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchParams] = useSearchParams();
 
-    useEffect(() => {
-        const fetchExperiences = async () => {
-            const location = searchParams.get('location');
-            const category = searchParams.get('category');
-            const response = await axios.get('http://localhost:5000/api/experiences', {
-                params: { location, category }
-            });
-            setExperiences(response.data);
-        };
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      try {
+        setLoading(true);
+        const location = searchParams.get("location");
+        const category = searchParams.get("category");
+        const response = await axios.get(
+          "http://localhost:5000/api/experiences",
+          {
+            params: { location, category },
+          }
+        );
+        setExperiences(response.data);
+      } catch (err) {
+        setError("Failed to fetch experiences");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        fetchExperiences();
-    }, [searchParams]);
+    fetchExperiences();
+  }, [searchParams]);
 
+  if (loading) {
     return (
-        <div className="min-h-screen bg-gray-100 p-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">Results</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {experiences.map((exp) => (
-                    <div
-                        key={exp.id}
-                        className="bg-white rounded-lg shadow-md overflow-hidden"
-                    >
-                        <img
-                            src={exp.image}
-                            alt={exp.name}
-                            className="w-full h-40 object-cover"
-                        />
-                        <div className="p-4">
-                            <h2 className="text-xl font-semibold text-gray-800">
-                                {exp.name}
-                            </h2>
-                            <p className="text-gray-600 mt-2">{exp.description}</p>
-                            <Link
-                                to={`/details/${exp.id}`}
-                                className="text-blue-500 hover:underline mt-4 block"
-                            >
-                                View Details
-                            </Link>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+      <div className="min-h-screen flex items-center justify-center">
+        <Spin size="large" />
+      </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Empty description={error} />
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="min-h-screen bg-gray-50 p-8"
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.div initial={{ y: -20 }} animate={{ y: 0 }} className="mb-8">
+          <Title level={2}>Experiences in {searchParams.get("location")}</Title>
+          <Text type="secondary">Category: {searchParams.get("category")}</Text>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card
+                hoverable
+                cover={
+                  <img
+                    alt={exp.name}
+                    src={exp.image}
+                    className="h-48 w-full object-cover"
+                  />
+                }
+                actions={[
+                  <Link to={`/details/${exp.id}`}>
+                    <EyeOutlined /> View Details
+                  </Link>,
+                ]}
+              >
+                <Meta
+                  title={exp.name}
+                  description={
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <EnvironmentOutlined className="mr-2" />
+                        <Text type="secondary">{exp.location}</Text>
+                      </div>
+                      <div className="flex items-center">
+                        <TagOutlined className="mr-2" />
+                        <Text type="secondary">{exp.category}</Text>
+                      </div>
+                    </div>
+                  }
+                />
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
 }
 
 export default ResultsPage;
