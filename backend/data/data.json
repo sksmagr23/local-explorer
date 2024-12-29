@@ -21,6 +21,26 @@
   },
   {
     "id": "3",
+    "name": "Loulou Restaurant",
+    "location": "Paris",
+    "category": "Food",
+    "description": "Offers stunning views of the Louvre and serves seasonal menu with highlights like foie gras, marinated beef, and veal chop.",
+    "image": "https://imgs.search.brave.com/IxUjvXlX_WAkOuoZE7pOKykLsXzBcv5WjMblmJ-mMo8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wYXJp/c2pldGFpbWUuY29t/L2RhdGEvbGF5b3V0/X2ltYWdlL2ZyLUZS/L0xvdWxvdS1QYXJp/cy1SZXN0dXJhbnQt/SW50JUMzJUE5cmll/dXItLTYzMHg0MDUt/LSVDMiVBOS1BZHJp/ZW4tRGlyYW5kLmpw/Zw",
+    "reviews": ["Wonderful!", "Must visit!"],
+    "rating": 4.9
+  },
+  {
+    "id": "4",
+    "name": "Loulou Restaurant",
+    "location": "Paris",
+    "category": "Food",
+    "description": "Offers stunning views of the Louvre and serves seasonal menu with highlights like foie gras, marinated beef, and veal chop.",
+    "image": "https://imgs.search.brave.com/IxUjvXlX_WAkOuoZE7pOKykLsXzBcv5WjMblmJ-mMo8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wYXJp/c2pldGFpbWUuY29t/L2RhdGEvbGF5b3V0/X2ltYWdlL2ZyLUZS/L0xvdWxvdS1QYXJp/cy1SZXN0dXJhbnQt/SW50JUMzJUE5cmll/dXItLTYzMHg0MDUt/LSVDMiVBOS1BZHJp/ZW4tRGlyYW5kLmpw/Zw",
+    "reviews": ["Wonderful!", "Must visit!"],
+    "rating": 4.9
+  },
+  {
+    "id": "5",
     "name": "Secret Beach",
     "location": "Bali",
     "category": "Outdoor",

@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
@@ -63,4 +67,8 @@ body {
     height: 40px;
     padding: 0 24px;
     border-radius: 6px;
+}
+
+.ant-select-selection-placeholder {
+  color: #9CA3AF !important;
 }
